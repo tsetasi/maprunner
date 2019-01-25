@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <Reporting />
+    <div class="md-layout md-gutter" id="">
+      <MapTracker class="md-layout-item"/>
+      <ItemList class="md-layout-item"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/layout/Header';
+import Reporting from './components/Reporting';
+import ItemList from './components/ItemList';
+import MapTracker from './components/maps/MapTracker';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Header,
+    Reporting,
+    ItemList,
+    MapTracker
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .viewport {
+    margin: 20px;
+  }
+
+
 </style>
