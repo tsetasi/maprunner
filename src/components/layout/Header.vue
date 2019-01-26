@@ -1,6 +1,6 @@
 <template>
     <header class="md-elevation-4 header">
-        <h1>Maprunner</h1>
+        <span class="md-display-2" id="headerTitle" >Maprunner</span>
     </header>
 </template>
 
@@ -11,11 +11,14 @@ export default {
 </script>
 
 <style scoped>
+    #headerTitle {
+        color: #efefef;
+        padding-left: 10px;
+    }
     .header {
-        color: #420DAD;
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-        padding: 10px;
+        color: #ffffff;
+        background: #420DAD;
+        padding: 15px;
         margin-bottom: 20px;
     }
 </style>

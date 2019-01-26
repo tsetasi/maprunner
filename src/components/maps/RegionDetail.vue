@@ -8,15 +8,11 @@
             <md-button v-bind:key="zone" v-for="zone in region.zones" type="button" class="md-primary md-alignment-right" v-on:click="addMap(zone)">{{zone}}</md-button>
         </md-list-item>
         <md-divider class="md-inset" v-if="deciphered.length > 0"></md-divider>
-        <md-button class="md-raised" :md-ripple="false" v-bind:key="map.id" v-for="map in sortedDeciphered" v-on:click="removeMap(map.id)">
-            {{map.zone}}
-        </md-button>
-        <md-divider></md-divider>
+        <md-chips class="md-primary" v-model="deciphered"></md-chips>
     </div>
 </template>
 
 <script>
-import uuid from 'uuid';
 
 export default {
     name: "RegionDetail",
@@ -28,24 +24,8 @@ export default {
     },
     methods: {
         addMap(zone) {
-            let newMap = {'zone': zone, id: uuid.v4()};
-            this.deciphered.push(newMap);
+            this.deciphered.push(zone);
             this.deciphered.sort();
-        },
-        removeMap(id) {
-            this.deciphered = this.deciphered.filter(map => map.id !== id);
-        }
-
-    },
-    computed: {
-        sortedDeciphered: function() {
-            function compare(a, b) {
-                if (a.zone < b.zone) { return -1; }
-                if (a.zone > b.zone) { return 1; }
-                return 0;
-            }
-
-            return this.deciphered.sort(compare);
         }
     }
 
@@ -53,8 +33,5 @@ export default {
 </script>
 
 <style scoped>
-    .md-divider {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+
 </style>

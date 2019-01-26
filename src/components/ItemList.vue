@@ -33,9 +33,9 @@ export default {
         return {
             'showAdd': false,
             items: [
-                {'id': 1, 'name': "thing 1", 'count': 1},
-                {'id': 2, 'name': "thing 2", 'count': 2},
-                {'id': 3, 'name': "thing 3", 'count': 3}
+                {'id': 1, 'name': "Thief Maps", 'count': null},
+                {'id': 2, 'name': "Waterproof Cloth", 'count': null},
+                {'id': 3, 'name': "Capybara Pups", 'count': null}
             ]
         }
     },
