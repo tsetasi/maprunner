@@ -8,7 +8,7 @@
             <md-button v-bind:key="zone" v-for="zone in region.zones" type="button" class="md-primary md-alignment-right" v-on:click="addMap(zone)">{{zone}}</md-button>
         </md-list-item>
         <md-divider class="md-inset" v-if="deciphered.length > 0"></md-divider>
-        <md-chips class="md-primary" v-model="deciphered"></md-chips>
+        <md-chips v-on:md-delete="$emit('ran-map')" class="md-primary" v-model="deciphered"></md-chips>
     </div>
 </template>
 

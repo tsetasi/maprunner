@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <Reporting />
+    <Reporting :mapsRun="mapsRun"/>
     <div class="md-layout md-gutter" id="">
-      <MapTracker class="md-layout-item"/>
+      <MapTracker v-on:ran-map="mapsRun++" class="md-layout-item"/>
       <ItemList class="md-layout-item"/>
     </div>
   </div>
@@ -11,8 +11,8 @@
 
 <script>
 import Header from './components/layout/Header';
-import Reporting from './components/Reporting';
-import ItemList from './components/ItemList';
+import Reporting from './components/reporting/Reporting';
+import ItemList from './components/items/ItemList';
 import MapTracker from './components/maps/MapTracker';
 
 export default {
@@ -22,6 +22,11 @@ export default {
     Reporting,
     ItemList,
     MapTracker
+  },
+  data() {
+    return {
+      mapsRun: 0
+    }
   }
 }
 </script>

@@ -6,11 +6,6 @@
                 <md-input v-model="portal.count" min="0" max="999999999" type="number"></md-input>
             </md-field>
         </div>
-        <!-- <div class="md-layout-item">
-            <md-button class="md-icon-button md-icon md-primary" v-on:click="portal.count++">
-                <md-icon>add</md-icon>
-            </md-button>
-        </div> -->
     </div>
 </template>
 
