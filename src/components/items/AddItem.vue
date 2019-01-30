@@ -1,15 +1,15 @@
 <template>
-    <div>
-        <form @submit="addItem" novalidate class="form-inline">
-            <md-field>
+    <md-list-item>
+        <form @submit="addItem" novalidate class="md-layout form-inline">
+            <md-field class="md-layout-item">
                 <label for="item name">Item name</label>
                 <md-input name="item name" id="item name" v-model="name" />
             </md-field>
-            <md-card-actions>
-                <md-button type="submit" class="md-primary md-alignment-right">Create item</md-button>
+            <md-card-actions class="md-layout-item">
+                <md-button type="submit" class="md-primary">Create item</md-button>
             </md-card-actions>
         </form>
-    </div>
+    </md-list-item>
 </template>
 
 <script>
