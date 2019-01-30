@@ -7,8 +7,8 @@
                 <md-icon v-else>remove</md-icon>
             </md-button>
         </md-toolbar>
-        <AddItem v-if="showAdd" v-on:add-item="addItem" />
         <md-list>
+            <AddItem v-if="showAdd" v-on:add-item="addItem" />
             <md-list-item v-bind:key="item.id" v-for="item in items">
                 <ItemDetail v-bind:item="item"/>
             </md-list-item>
