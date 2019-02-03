@@ -8,7 +8,7 @@
         </md-toolbar>
         <md-list>
             <div v-bind:key="region.name" v-for="region in regions" class="md-layout-item">
-                <RegionDetail v-bind:region="region" v-on:ran-map="$emit('ran-map')" class="md-layout-item"/>
+                <RegionDetail v-bind:region="region" @ran-map="$emit('ran-map')" @portal-opened="$emit('portal-opened')" class="md-layout-item"/>
             </div>
         </md-list>
     </div>

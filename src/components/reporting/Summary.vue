@@ -6,9 +6,9 @@
             </div>
         </div>
         <div class="md-layout-item">
-            <div>{{mapsRun}} Maps run</div>
-            <div v-for="portal in portals" :key="portal.type">
-                {{portal.count}} {{portal.type}}
+            <div>Maps run: {{mapsRun}}</div>
+            <div v-for="(value, key) in portals" :key=key>
+                {{key | capitalize}}: {{value}}
             </div>
         </div>
         <div class="md-layout-item">
@@ -37,7 +37,7 @@ export default {
                 summaryString += "Time elapsed: " + end.diff(this.timestamps.start, 'minutes') + " minutes. ";
             }
 
-            summaryString += "Earned so far: ";
+            summaryString += "Earned: ";
             this.currencies.forEach(function(currency, index, currencies) {
                 summaryString += (currency.ending - currency.starting) + " " + currency.name;
                 summaryString += index === (currencies.length - 1) ? ". " : ", ";
@@ -45,18 +45,24 @@ export default {
 
             if (this.mapsRun > 0) {
                 let portalTotal = 0;
-                this.portals.forEach(function(portal) {
-                    portalTotal += parseInt(portal.count);
-                })
-                summaryString += "Ran " + this.mapsRun + " maps, opening " + portalTotal + " portals";
+                
+                for (let key in this.portals) {
+                    portalTotal += this.portals[key];
+                }
+                summaryString += "Ran " + this.mapsRun + " map" + (this.mapsRun > 1 ? 's' : '') + ", opening " + portalTotal + " portal" + (this.portalTotal > 1 ? 's' : '');
                 summaryString += portalTotal > 0 ? ", portal rate of " + ((portalTotal / this.mapsRun) * 100).toFixed(2) + "%." : ".";
             }
             this.$clipboard(summaryString);
+        }
+    },
+    filters: {
+        capitalize: function(name) {
+            return name.charAt(0).toUpperCase() + name.slice(1);
         }
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+    
 </style>

@@ -9,7 +9,7 @@
         </md-toolbar>
         <md-list>
             <AddItem v-if="showAdd" v-on:add-item="addItem" />
-            <md-list-item v-bind:key="item.id" v-for="item in items">
+            <md-list-item :key="index" v-for="(item, index) in items">
                 <ItemDetail v-bind:item="item"/>
             </md-list-item>
         </md-list>
@@ -28,15 +28,10 @@ export default {
         AddItem,
     },
     name: "Items",
-    props: [],
+    props: ["items"],
     data() {
         return {
-            'showAdd': false,
-            items: [
-                {'id': 1, 'name': "Thief Maps", 'count': null},
-                {'id': 2, 'name': "Waterproof Cloth", 'count': null},
-                {'id': 3, 'name': "Capybara Pups", 'count': null}
-            ]
+            'showAdd': false
         }
     },
     methods: {

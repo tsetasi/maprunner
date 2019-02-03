@@ -10,15 +10,7 @@
                     <CurrencyItem :currency="currency" />
                 </md-list-item>
             </md-list>
-            <md-list class="md-layout-item md-size-15">
-                <md-subheader class="md-primary">Maps Run</md-subheader>
-                <md-list-item>{{mapsRun}}</md-list-item>
 
-                <md-subheader class="md-primary">Portals</md-subheader>
-                <md-list-item v-for="portal in portals" :key="portal.type">
-                    <PortalItem :portal="portal" />
-                </md-list-item>
-            </md-list>
             <md-list class="md-layout-item">
                 <md-subheader class="md-primary">Summary</md-subheader>
                 <Summary :currencies="currencies" :portals="portals" :timestamps="timestamps" :mapsRun="mapsRun" />
@@ -32,7 +24,6 @@
 
 <script>
 import CurrencyItem from './CurrencyItem';
-import PortalItem from './PortalItem';
 import Summary from './Summary';
 import Timekeeping from './Timekeeping';
 import moment from 'moment';
@@ -41,11 +32,10 @@ export default {
     name: "Reporting",
     components: {
         CurrencyItem,
-        PortalItem,
         Summary,
         Timekeeping
     },
-    props: ["mapsRun"],
+    props: ["mapsRun", "portalsRun"],
     data() {
         return {
             currencies: [
@@ -53,12 +43,18 @@ export default {
                 {'name': 'Genesis', 'starting': null, 'ending': null},
                 {'name': 'Mendacity', 'starting': null, 'ending': null}
             ],
-            portals: [
-                {'type': 'Canals', 'count': 0},
-                {'type': 'Altars', 'count': 0},
-                {'type': 'Hidden', 'count': 0}
-            ],
             timestamps: {'start': null, 'end': null}
+        }
+    },
+    computed: {
+        portals: function() {
+            let portalCounts = {'canals': 0, 'altars': 0, 'hidden': 0};
+
+            for (let i = 0; i < this.portalsRun.length; i++) {
+                portalCounts[this.portalsRun[i].portalType]++;
+            }
+
+            return portalCounts;
         }
     },
     methods: {
