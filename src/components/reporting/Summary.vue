@@ -50,7 +50,7 @@ export default {
                 for (let key in this.portals) {
                     portalTotal += this.portals[key];
                 }
-                summaryString += "Ran " + this.mapsRun + " map" + (this.mapsRun > 1 ? 's' : '') + ", opening " + portalTotal + " portal" + (this.portalTotal > 1 ? 's' : '');
+                summaryString += "Ran " + this.mapsRun + " map" + (this.mapsRun > 1 ? 's' : '') + ", opening " + portalTotal + " portal" + (portalTotal > 1 ? 's' : '');
                 summaryString += portalTotal > 0 ? ", portal rate of " + ((portalTotal / this.mapsRun) * 100).toFixed(2) + "%. " : ". ";
 
                 summaryString += "Run breakdown: ";
