@@ -26,7 +26,8 @@ export default {
         "currencies",
         "portals",
         "mapsRun",
-        "timestamps"
+        "timestamps",
+        "portalsRun"
     ],
     methods: {
         copySummaryInfo() {
@@ -50,7 +51,14 @@ export default {
                     portalTotal += this.portals[key];
                 }
                 summaryString += "Ran " + this.mapsRun + " map" + (this.mapsRun > 1 ? 's' : '') + ", opening " + portalTotal + " portal" + (this.portalTotal > 1 ? 's' : '');
-                summaryString += portalTotal > 0 ? ", portal rate of " + ((portalTotal / this.mapsRun) * 100).toFixed(2) + "%." : ".";
+                summaryString += portalTotal > 0 ? ", portal rate of " + ((portalTotal / this.mapsRun) * 100).toFixed(2) + "%. " : ". ";
+
+                summaryString += "Run breakdown: ";
+
+                this.portalsRun.forEach(function(run, index, runs) {
+                    summaryString += run.portalType + " " + run.floor;
+                    summaryString += (index === runs.length - 1) ? ". " : ", ";
+                });
             }
             this.$clipboard(summaryString);
         }

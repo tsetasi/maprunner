@@ -3,7 +3,7 @@
     <Header />
     <Reporting :mapsRun="mapsRun" :portalsRun="portalsRun" />
     <div class="md-layout md-gutter" id="">
-      <RunDetail @save-run="saveRun" :showDialog="showDialog" />
+      <RunDetail @save-run="saveRun" :showDialog="showDialog" :items="items" />
       <MapTracker @ran-map="mapsRun++" @portal-opened="showDialog = true" class="md-layout-item"/>
       <ItemList :items="items" class="md-layout-item"/>
     </div>
@@ -32,9 +32,11 @@ export default {
       mapsRun: 0,
       portalsRun: [],
       items: [
-                {'id': 1, 'name': "Thief Maps", 'count': null},
-                {'id': 2, 'name': "Waterproof Cloth", 'count': null},
-                {'id': 3, 'name': "Capybara Pups", 'count': null}
+                {'id': 0, 'name': "Waterproof Cloth", 'count': null},
+                {'id': 1, 'name': "Wind-Up Namazu", 'count': null},
+                {'id': 2, 'name': "Wind-Up Matanga", 'count': null},
+                {'id': 3, 'name': "Capybara Pup", 'count': null},
+                {'id': 4, 'name': "Gold Whisker", 'count': null}
             ]
     }
   },

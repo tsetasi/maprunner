@@ -13,7 +13,7 @@
 
             <md-list class="md-layout-item">
                 <md-subheader class="md-primary">Summary</md-subheader>
-                <Summary :currencies="currencies" :portals="portals" :timestamps="timestamps" :mapsRun="mapsRun" />
+                <Summary :currencies="currencies" :portals="portals" :timestamps="timestamps" :mapsRun="mapsRun" :portalsRun="portalsRun" />
 
                 <md-subheader class="md-primary">Timekeeping</md-subheader>
                 <Timekeeping :timestamps="timestamps" v-on:start-time="setStart" v-on:reset-start="resetStart" v-on:end-time="setEnd" v-on:reset-end="resetEnd"/>

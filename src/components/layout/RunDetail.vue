@@ -1,5 +1,5 @@
 <template>
-    <md-dialog :md-active.sync="showDialog" :md-click-outside-to-close="false" :md-close-on-esc="false" :md-backdrop="false">
+    <md-dialog :md-active.sync="showDialog" :md-click-outside-to-close="false" :md-close-on-esc="false" :md-backdrop="true">
         <md-dialog-title>Portal Details</md-dialog-title>
         
             <md-divider />
@@ -27,6 +27,12 @@
 
             </form>
 
+        <md-list>
+            <md-list-item :key="index" v-for="(item, index) in items">
+                <ItemDetail v-bind:item="item"/>
+            </md-list-item>
+        </md-list>
+
             <md-divider />
 
         <md-dialog-actions>
@@ -37,11 +43,14 @@
 </template>
 
 <script>
+import ItemDetail from '../items/ItemDetail';
 
 export default {
     name: 'RunDetail',
-
-    props: ["showDialog"],
+    components: {
+        ItemDetail
+    },
+    props: ["showDialog", "items"],
     data: () => ({
         portalType: 'canals',
         floor: 1
