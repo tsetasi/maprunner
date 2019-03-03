@@ -19,7 +19,7 @@
                     <md-button class="incrementor md-icon-button md-raised md-primary" :disabled="isDisabled" @click="floor++">
                         <md-icon>add</md-icon>
                     </md-button>
-                    <md-button class="incrementor md-icon-button md-raised md-primary" :disabled="floor <= 1" @click="floor--">
+                    <md-button class="incrementor md-icon-button md-raised md-primary" :disabled="floor <= 0" @click="floor--">
                         <md-icon>remove</md-icon>
                     </md-button>
                 </div>
