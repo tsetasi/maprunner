@@ -1,0 +1,37 @@
+{
+    "expansions": {
+        "heavensward": {
+        },
+        "stormblood": {
+            "regions": [
+                {
+                    "name": "Gyr Abania",
+                    "zones": ["Fringes", "Lochs", "Peaks"]
+                },
+                {
+                    "name": "Othard",
+                    "zones": ["Azim Steppe", "Ruby Sea", "Yanxia"]
+                }
+            ],
+            "portalTypes": [
+                {"name": "Canals", "type": "floor", "failText": "Should have gone left!"},
+                {"name": "Altars", "type": "invocation", "failText": "FUCKING ATOMOS"},
+                {"name": "Hidden", "type": "floor", "failText": "Should have gone left!"}
+            ]
+                    
+        },
+        "shadowbringers": {
+            "regions": [
+                {
+                    "name": "Norvrandt",
+                    "zones": ["Rak'tika", "Amh Araeng", "Il Mheg", "Kholusia", "Lakeland"]
+                }
+            ],
+            "portalTypes": [
+                {"name": "Type 1", "type": "floor", "failText": "Should have gone left!"},
+                {"name": "Type 2", "type": "invocation", "failText": "FUCKING ATOMOS"}
+            ]
+        }
+    },
+    "currencies": ["gil", "genesis", "mendacity"]
+}

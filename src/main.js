@@ -1,19 +1,26 @@
 import Vue from 'vue'
-import VueMaterial from 'vue-material'
-import Clipboard from 'v-clipboard'
-import 'vue-material/dist/vue-material.min.css'
-import App from './App.vue'
-import moment from 'moment';
+import Maprunner from './Maprunner.vue'
+import store from './store'
+import BootstrapVue from 'bootstrap-vue';
+import clipboard from 'v-clipboard';
+import VueMoment from 'vue-moment';
 
-import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default.css'
+
+import './app.scss';
 
 Vue.config.productionTip = false
 
-Vue.use(VueMaterial)
-Vue.use(Clipboard)
-Vue.prototype.moment = moment;
+Vue.use(BootstrapVue);
+Vue.use(clipboard);
+Vue.use(VueMoment)
+
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+});
 
 new Vue({
-  render: h => h(App),
+  store,
+  render: h => h(Maprunner)
 }).$mount('#app')
