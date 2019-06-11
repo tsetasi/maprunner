@@ -9,27 +9,9 @@ const state = {
   configured: false,
   expansionOptions: fieldData.expansions,
   currencyOptions: fieldData.currencies,
-  regions: [
-    {
-        "name": "Gyr Abania",
-        "zones": ["Fringes", "Lochs", "Peaks"]
-    },
-    {
-        "name": "Othard",
-        "zones": ["Azim Steppe", "Ruby Sea", "Yanxia"]
-    }
-  ],
-  currency: {
-    gil: {initial: 0, final: 0},
-    genesis: {initial: 0, final: 0},
-    mendacity: {initial: 0, final: 0}
-  },
-  portalTypes: [
-    {"name": "Canals", "type": "floor", "failText": "Should have gone left!", "max": 7},
-    {"name": "Altars", "type": "invocation", "failText": "FUCKING ATOMOS", "max": 5},
-    {"name": "Hidden", "type": "floor", "failText": "Should have gone left!", "max": 7}
-  ],
-  mapCounts: {"Fringes": 0, "Lochs": 0, "Peaks": 0, "Azim Steppe": 0, "Ruby Sea": 0, "Yanxia": 0},
+  regions: [],
+  currency: {},
+  portalTypes: [],
   mapsRun: 0,
   portalsOpened: 0,
   startTime: null,
@@ -89,12 +71,9 @@ const mutations = {
       currency[item].initial = configData.currencies[item];
       currency[item].final = 0;
     })
-    console.log(currency)
     state.currency = currency;
 
-    state.regions.forEach((region) => {
-      region.zones.forEach((zone) => { state.mapCounts[zone] = 0; })
-    })
+    state.portalTypes = configData.expansion.portalTypes;
 
     // Start the clock
     state.startTime = moment();

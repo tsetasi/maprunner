@@ -52,7 +52,11 @@ export default {
         decrementMaps(zone) { this.mapCounts[zone]--; }
     },
     created() {
-        this.mapCounts = this.$store.state.mapCounts;
+        this.$store.state.regions.forEach((region) => {
+            region.zones.forEach((zone) => {
+                this.$set(this.mapCounts, zone, 0);
+            });
+        });
     }
 }
 </script>

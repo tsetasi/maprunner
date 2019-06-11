@@ -1,6 +1,19 @@
 {
     "expansions": {
         "heavensward": {
+            "regions": [
+                {
+                    "name": "Coerthas and Dravania",
+                    "zones": ["Coerthas Western Highlands", "Dravanian Forelands", "Dravanian Hinterlands"]
+                },
+                {
+                    "name": "Abalathia's Spine",
+                    "zones": ["Sea of Clouds", "Churning Mists", "Azys Lla"]
+                }
+            ],
+            "portalTypes": [
+                {"name": "Aquapolis", "type": "floor", "failText": "Should have gone left!", "max": 7}
+            ]
         },
         "stormblood": {
             "regions": [
@@ -14,9 +27,9 @@
                 }
             ],
             "portalTypes": [
-                {"name": "Canals", "type": "floor", "failText": "Should have gone left!"},
-                {"name": "Altars", "type": "invocation", "failText": "FUCKING ATOMOS"},
-                {"name": "Hidden", "type": "floor", "failText": "Should have gone left!"}
+                {"name": "Canals", "type": "floor", "failText": "Should have gone left!", "max": 7},
+                {"name": "Altars", "type": "invocation", "failText": "FUCKING ATOMOS", "max": 5},
+                {"name": "Hidden", "type": "floor", "failText": "Should have gone left!", "max": 7}
             ]
                     
         },
