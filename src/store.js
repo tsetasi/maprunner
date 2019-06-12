@@ -12,6 +12,8 @@ const state = {
   regions: [],
   currency: {},
   portalTypes: [],
+  portalRuns: [],
+  itemList: [],
   mapsRun: 0,
   portalsOpened: 0,
   startTime: null,
@@ -54,7 +56,15 @@ const getters = {
       earningsSummary += ` ${earnings[currency]} ${currency}`
     })
 
-    summary += ` ${earningsSummary}.`;
+    summary += ` ${earningsSummary}. `;
+
+    let portalRuns = 'Portal results: ';
+    state.portalRuns.forEach((run, index, runs) => {
+      portalRuns += `${run.portalType} ${run.cleared ? 'clear' : run.floorReached}${index === runs.length - 1 ? '.' : ', '}`;
+    });
+
+    summary += portalRuns;
+
     return summary;
   }
 };
@@ -81,7 +91,19 @@ const mutations = {
     // Flag app as configured
     state.configured = true;
   },
+  processPortalRun (state, runDetails) {
+    state.portalRuns.push(runDetails);
+    runDetails.itemsGained.forEach((gainedItem) => {
+      state.itemList.forEach((listItem, index) => {
+        if (gainedItem.itemName === listItem.itemName) {
+          state.itemList[index].itemCount += gainedItem.itemCount;
+        }
+      });
+    });
+  },
+  addItem(state, item) { state.itemList.push(item); },
   setCurrency(state, data) { state.currency = data; },
+  setEndTime(state, time) { state.endTime = time; },
   incrementMapsRun(state) { state.mapsRun++; },
   incrementPortals(state) { state.portalsOpened++; }
 };
@@ -93,9 +115,11 @@ const actions = {
   updateCurrency ({commit}, currencyData) {
     commit('setCurrency', currencyData);
   },
+  updateItemList( {commit}, item) { commit('addItem', item); },
   setEndTime ({commit}, time) { commit('setEndTime', time); },
   incrementPortals({commit}) { commit('incrementPortals'); },
-  incrementMapsRun({commit}) { commit('incrementMapsRun'); }
+  incrementMapsRun({commit}) { commit('incrementMapsRun'); },
+  savePortalRun({commit}, runDetails) { commit('processPortalRun', runDetails); }
 };
 
 export default new Vuex.Store({

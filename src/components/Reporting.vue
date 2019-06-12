@@ -17,7 +17,7 @@
             <hr>
             <b-row align-h="around">
                 <b-button @click="copySummaryReport()" variant="primary">Copy Summary</b-button>
-                <b-button disabled variant="primary">View Details</b-button>
+                <b-button @click="viewDetails()" :disabled="portalRuns.length === 0" variant="primary">View Portal Details</b-button>
             </b-row>
         </b-card>
     </b-col>
@@ -28,12 +28,16 @@ export default {
     name: "Reporting",
     computed: {
         earnedCurrency() { return this.$store.getters.getEarnedCurrencies; },
-        portalStats() { return this.$store.getters.getPortalStats; }
+        portalStats() { return this.$store.getters.getPortalStats; },
+        portalRuns() { return this.$store.state.portalRuns; }
     },
     methods: {
         copySummaryReport() { 
             let summary = this.$store.getters.getSummaryReport;
             this.$clipboard(summary);
+        },
+        viewDetails() {
+            this.$root.$emit('bv::show::modal', 'report-modal');
         }
     }
 }

@@ -14,7 +14,7 @@
                 <b-form id="add-item-form" inline @submit="addItem" @submit.stop.prevent>
                     <b-form-group label="Glittering Prizes">
                         <b-input id="item-name-input" v-model="itemName" placeholder="Item name"></b-input>
-                        <b-button type="submit" variant="primary">Add</b-button>
+                        <b-button type="submit" :disabled="itemName.length === 0" variant="primary">Add</b-button>
                     </b-form-group>
                 </b-form>
                 <div class="loot-lineitem" v-for="(item, index) in itemList" :key="item.itemName">
@@ -42,21 +42,24 @@ export default {
     data() {
         return {
             currencyCounts: {},
-            itemName: '',
-            itemList: []
+            itemName: ''
         }
     },
     computed: {
-        currencies() { return this.$store.state.currency; }
+        currencies() { return this.$store.state.currency; },
+        itemList() { return this.$store.state.itemList; }
     },
     methods: {
         updateCurrency() { this.$store.dispatch('updateCurrency', this.currencyCounts); },
         addItem() {
-            this.itemList.push({
+            let item = {
                 itemName: this.itemName,
                 itemCount: 0
-            });
-            itemName = '';
+            };
+
+            this.$store.dispatch('updateItemList', item);
+            
+            this.itemName = '';
         },
         incrementItem(index) { this.itemList[index].itemCount++; },
         decrementItem(index) { this.itemList[index].itemCount--; }

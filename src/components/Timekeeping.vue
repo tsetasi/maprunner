@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         recordStopTime() { 
-            this.endTime = new Date(); 
+            this.endTime = this.$moment(); 
             this.$store.dispatch('setEndTime', this.endTime);
         }
     }

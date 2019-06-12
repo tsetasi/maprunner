@@ -3,6 +3,7 @@
     <Header/>
     <ConfigModal/>
     <PortalModal/>
+    <ReportModal/>
     <b-container v-if="configured">
       <b-row class="base-section">
         <MapTracker/>
@@ -25,6 +26,7 @@ import LootTracker from './components/LootTracker';
 import MapTracker from './components/MapTracker';
 import PortalModal from './components/PortalModal';
 import Reporting from './components/Reporting';
+import ReportModal from './components/ReportModal';
 import Timekeeping from './components/Timekeeping';
 
 export default {
@@ -36,6 +38,7 @@ export default {
     MapTracker,
     PortalModal,
     Reporting,
+    ReportModal,
     Timekeeping
   },
   computed: {
