@@ -37,14 +37,13 @@
             "regions": [
                 {
                     "name": "Norvrandt",
-                    "zones": ["Rak'tika", "Amh Araeng", "Il Mheg", "Kholusia", "Lakeland"]
+                    "zones": ["Rak'tika", "Amh Araeng", "Il Mheg", "Kholusia", "Lakeland","[REDACTED]"]
                 }
             ],
             "portalTypes": [
-                {"name": "Type 1", "type": "floor", "failText": "Should have gone left!"},
-                {"name": "Type 2", "type": "invocation", "failText": "FUCKING ATOMOS"}
+                {"name": "Dungeon", "type": "floor", "failText": "Should have gone left!"}
             ]
         }
     },
-    "currencies": ["gil", "genesis", "mendacity"]
+    "currencies": ["gil", "goetia", "phantasmagoria"]
 }

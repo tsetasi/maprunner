@@ -1,6 +1,6 @@
 {
-  "name": "maprunner",
-  "version": "0.1.0",
+  "name": "Maprunner",
+  "version": "2019.07.02",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
