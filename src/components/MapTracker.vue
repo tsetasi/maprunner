@@ -41,7 +41,7 @@ export default {
             this.mapCounts[zone] = this.mapCounts[zone] ? this.mapCounts[zone] + 1 : 1;
         },
         openedPortal(zone) {
-            this.$root.$emit('bv::show::modal', 'portal-modal');
+            this.$bvModal.show('portal-modal');
             this.$store.dispatch('incrementPortals');
             this.ranMap(zone);
         },

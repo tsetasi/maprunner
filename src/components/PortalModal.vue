@@ -109,7 +109,7 @@ export default {
                 startTime: this.startTime,
                 endTime: this.$moment(),
                 cleared: (this.portalType.max === this.floorReached)
-            }
+            };
             this.$store.dispatch('savePortalRun', runDetails);
         }
     }
