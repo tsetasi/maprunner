@@ -37,7 +37,7 @@ export default {
             this.$clipboard(summary);
         },
         viewDetails() {
-            this.$root.$emit('bv::show::modal', 'report-modal');
+            this.$bvModal.show('report-modal');
         }
     }
 }

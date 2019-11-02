@@ -37,7 +37,7 @@
             "regions": [
                 {
                     "name": "Norvrandt",
-                    "zones": ["Rak'tika", "Amh Araeng", "Il Mheg", "Kholusia", "Lakeland","[REDACTED]"]
+                    "zones": ["Rak'tika", "Amh Araeng", "Il Mheg", "Kholusia", "Lakeland","Tempest"]
                 }
             ],
             "portalTypes": [
