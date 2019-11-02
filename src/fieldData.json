@@ -16,6 +16,7 @@
             ]
         },
         "stormblood": {
+            "finderLink": "https://www.dopr.net/ff14playguide/TreasureHuntG10",
             "regions": [
                 {
                     "name": "Gyr Abania",
@@ -34,16 +35,18 @@
                     
         },
         "shadowbringers": {
+            "finderLink": "https://www.dopr.net/ff14playguide/treasurehunt5-2",
             "regions": [
                 {
                     "name": "Norvrandt",
-                    "zones": ["Rak'tika", "Amh Araeng", "Il Mheg", "Kholusia", "Lakeland","Tempest"]
+                    "zones": ["Rak'tika", "Amh Araeng", "Il Mheg", "Kholusia", "Lakeland", "Tempest"]
                 }
             ],
             "portalTypes": [
-                {"name": "Dungeon", "type": "floor", "failText": "Should have gone left!"}
+                {"name": "Dungeon", "type": "floor", "failText": "Should have gone left!", "max": 5}
             ]
         }
     },
-    "currencies": ["gil", "goetia", "phantasmagoria"]
+    "currencies": ["gil", "goetia", "phantasmagoria"],
+    "items": [{"itemName": "Indigo Cloth", "itemCount": 0},{"itemName": "Fireglass Leather", "itemCount": 0},{"itemName": "Shell Leather", "itemCount": 0}]
 }
