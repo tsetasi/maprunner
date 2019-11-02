@@ -21,6 +21,15 @@
                     </div>
                 </b-col>
             </b-row>
+            <b-row v-if="hasFinder">
+                <b-col>
+                    <div>
+                        <div class="region-title">Finder</div>
+                        <b-button @click="openFinder()" variant="link">Open</b-button>
+                        <b-button @click="copyFinderLink()" variant="link">Copy</b-button>
+                    </div>
+                </b-col>
+            </b-row>
         </b-card>
     </b-col>
 </template>
@@ -30,7 +39,8 @@ export default {
     name: "MapTracker",
     data() {
         return {
-            mapCounts: {}
+            mapCounts: {},
+            hasFinder: false,
         }
     },
     computed: {
@@ -49,7 +59,12 @@ export default {
             this.mapCounts[zone]--;
             this.$store.dispatch('incrementMapsRun');
         },
-        decrementMaps(zone) { this.mapCounts[zone]--; }
+        decrementMaps(zone) { this.mapCounts[zone]--; },
+        openFinder() { window.open(this.$store.state.finderLink, "_blank"); },
+        copyFinderLink() {
+            let link = this.$store.state.finderLink;
+            this.$clipboard(link);
+        }
     },
     created() {
         this.$store.state.regions.forEach((region) => {
@@ -57,6 +72,8 @@ export default {
                 this.$set(this.mapCounts, zone, 0);
             });
         });
+
+        this.hasFinder = (this.$store.state.finderLink != null);
     }
 }
 </script>

@@ -3,17 +3,18 @@ import Vuex from 'vuex'
 import moment from 'moment';
 import fieldData from './fieldData.json';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const state = {
   configured: false,
   expansionOptions: fieldData.expansions,
   currencyOptions: fieldData.currencies,
   regions: [],
+  finderLink: "",
   currency: {},
   portalTypes: [],
   portalRuns: [],
-  itemList: [],
+  itemList: fieldData.items,
   mapsRun: 0,
   portalsOpened: 0,
   startTime: null,
@@ -71,8 +72,9 @@ const getters = {
 
 const mutations = {
   setConfig (state, configData) {
-    // Set expansion region data
+    // Set expansion region data and map finder link
     state.regions = configData.expansion.regions;
+    state.finderLink = configData.expansion.finderLink;
     
     // Set currency types and initial counts
     let currency = {};
@@ -80,7 +82,7 @@ const mutations = {
       currency[item] = {};
       currency[item].initial = configData.currencies[item];
       currency[item].final = 0;
-    })
+    });
     state.currency = currency;
 
     state.portalTypes = configData.expansion.portalTypes;
