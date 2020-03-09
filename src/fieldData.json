@@ -47,6 +47,6 @@
             ]
         }
     },
-    "currencies": ["gil", "goetia", "phantasmagoria"],
+    "currencies": ["gil", "phantasmagoria", "allegory"],
     "items": [{"itemName": "Indigo Cloth", "itemCount": 0},{"itemName": "Fireglass Leather", "itemCount": 0},{"itemName": "Shell Leather", "itemCount": 0}]
 }
