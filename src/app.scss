@@ -2,7 +2,7 @@
 
 $theme-colors: (
     "header": #6a5496,
-    "primary": #275889,
+    "primary": #497AAB,
     "danger": #82431a
 );
 
@@ -11,7 +11,7 @@ div#app-header {
     background: #6a5496;
     height: 100px;
     font-size: 3em;
-    color: white;
+    color: #e9ecef;
     font-weight: 600;
     text-shadow: 2px 2px 2px black;
     border-bottom: 1px solid black;
@@ -23,6 +23,10 @@ div#app-header {
         text-align: left;
         padding-left: 1em;
     }
+}
+
+#app, .card {
+    background: #121212 !important;
 }
 
 h2 {
