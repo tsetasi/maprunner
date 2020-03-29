@@ -16,7 +16,8 @@
             </b-row>
             <hr>
             <b-row align-h="around">
-                <b-button @click="copySummaryReport()" variant="primary">Copy Summary</b-button>
+                <b-button @click="copySummaryReport()" variant="primary">Portal Summary</b-button>
+                <b-button @click="copyLootReport()" variant="primary">Loot Summary</b-button>
                 <b-button @click="viewDetails()" :disabled="portalRuns.length === 0" variant="primary">View Portal Details</b-button>
             </b-row>
         </b-card>
@@ -34,6 +35,10 @@ export default {
     methods: {
         copySummaryReport() { 
             let summary = this.$store.getters.getSummaryReport;
+            this.$clipboard(summary);
+        },
+        copyLootReport() {
+            let summary = this.$store.getters.getLootReport;
             this.$clipboard(summary);
         },
         viewDetails() {
