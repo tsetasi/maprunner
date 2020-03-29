@@ -63,7 +63,7 @@ export default {
     data() {
         return {
             portalType: {failText: "OK", max: 0},
-            floorReached: 0,
+            floorReached: 1,
             itemList: [],
             itemName: '',
             startTime: null
@@ -84,8 +84,8 @@ export default {
             this.itemName = '';
         },
         resetModal() {
-            this.portalType = {failText: "OK", max: 0};
-            this.floorReached = 0;
+            this.portalType = this.$store.state.portalTypes[0];
+            this.floorReached = 1;
             this.itemList = [];
             this.itemName = '';
             this.startTime = this.$moment();

@@ -48,5 +48,11 @@
         }
     },
     "currencies": ["gil", "phantasmagoria", "allegory"],
-    "items": [{"itemName": "Indigo Cloth", "itemCount": 0},{"itemName": "Fireglass Leather", "itemCount": 0},{"itemName": "Shell Leather", "itemCount": 0}]
+    "items": [
+        {"itemName": "Indigo Cloth", "itemCount": 0},
+        {"itemName": "Fireglass Leather", "itemCount": 0},
+        {"itemName": "Shell Leather", "itemCount": 0},
+        {"itemName": "Cloth-softening Powder", "itemCount": 0},
+        {"itemName": "Stuffed Fuath", "itemCount": 0}
+    ]
 }

@@ -55,7 +55,7 @@ const getters = {
     let earningsSummary = '';
     Object.keys(earnings).forEach((currency) => {
       earningsSummary += ` ${earnings[currency]} ${currency}`
-    })
+    });
 
     summary += ` ${earningsSummary}. `;
 
@@ -65,6 +65,14 @@ const getters = {
     });
 
     summary += portalRuns;
+
+    return summary;
+  },
+  getLootReport(state) {
+    let summary = 'Loot: ';
+    state.itemList.forEach((item, index, items) => {
+      summary += `${item.itemCount} ${item.itemName}${index === items.length - 1 ? '.' : ', '}`;
+    });
 
     return summary;
   }
