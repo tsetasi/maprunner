@@ -43,12 +43,14 @@
                 }
             ],
             "portalTypes": [
-                {"name": "Dungeon", "type": "floor", "failText": "Should have gone left!", "max": 5}
+                {"name": "Dungeon", "type": "floor", "failText": "Should have gone left!", "max": 5},
+                {"name": "Oubliettes", "type": "invocation", "failText": "FUCKING ATOMOS", "max": 5}
             ]
         }
     },
-    "currencies": ["gil", "phantasmagoria", "allegory"],
+    "currencies": ["gil", "allegory", "revelation"],
     "items": [
+        {"itemName": "Calf Leather", "itemCount":  0},
         {"itemName": "Indigo Cloth", "itemCount": 0},
         {"itemName": "Fireglass Leather", "itemCount": 0},
         {"itemName": "Shell Leather", "itemCount": 0},
