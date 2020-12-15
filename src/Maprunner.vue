@@ -43,6 +43,19 @@ export default {
   },
   computed: {
     configured() { return this.$store.state.configured; }
+  },
+  methods: {
+    preventNav(event) {
+      if (confirm()) return;
+      event.preventDefault();
+      event.returnValue = "";
+    }
+  },
+  beforeMount() {
+    window.addEventListener("beforeunload", this.preventNav)
+  },
+  beforeDestroy() {
+    window.removeEventListener("beforeunload", this.preventNav)
   }
 }
 </script>
