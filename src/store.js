@@ -61,7 +61,11 @@ const getters = {
 
     let portalRuns = 'Portal results: ';
     state.portalRuns.forEach((run, index, runs) => {
-      portalRuns += `${run.portalType} ${run.cleared ? 'clear' : run.floorReached}${index === runs.length - 1 ? '.' : ', '}`;
+      let specials = '';
+      if (run.gotSilver || run.hasGoldShifted) {
+          specials = ` (${run.gotSilver ? "Silver" : ''}${(run.gotSilver && run.hasGoldShifted) ? ", " : ''}${run.hasGoldShifted ? `Gold on ` + run.goldInvocation : ''})`
+      }
+      portalRuns += `${run.portalType} ${run.cleared ? 'clear' : run.floorReached}${specials}${index === runs.length - 1 ? '.' : ', '}`;
     });
 
     summary += portalRuns;
