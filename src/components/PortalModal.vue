@@ -24,8 +24,17 @@
                 <span class="offset-1">{{floorReached}}</span>
                 <b-button-group class="offset-1" size="sm">
                     <b-button @click="incrementFloor()" :disabled="floorReached === portalType.max || portalType.name === null">+</b-button>
-                    <b-button @click="decrementFloor()" :disabled="floorReached === 0">-</b-button>
+                    <b-button @click="decrementFloor()" :disabled="floorReached === 1">-</b-button>
                 </b-button-group>
+            </div>
+            <div v-if="portalType.type === 'invocation'">
+                <b-checkbox class="offset-1" v-model="gotSilver">Silver</b-checkbox>
+                <b-checkbox class="offset-1" v-model="hasGoldShifted">Gold Shift</b-checkbox>
+                <span class="offset-2" v-if="isGold">on Invocation {{goldInvocation}}</span>
+              <b-button-group class="offset-1" size="sm" v-if="isGold">
+                <b-button @click="incrementGoldInvocation()" :disabled="goldInvocation === floorReached || portalType.name === null">+</b-button>
+                <b-button @click="decrementGoldInvocation()" :disabled="goldInvocation === 1">-</b-button>
+              </b-button-group>
             </div>
         </b-form-group>
 
@@ -64,19 +73,25 @@ export default {
         return {
             portalType: {failText: "OK", max: 0},
             floorReached: 1,
+            gotSilver: false,
+            hasGoldShifted: false,
+            goldInvocation: 1,
             itemList: [],
             itemName: '',
             startTime: null
         }
     },
     computed: {
-        portalOptions() { return this.$store.state.portalTypes; }
+        portalOptions() { return this.$store.state.portalTypes; },
+        isGold() { return this.hasGoldShifted; }
     },
     methods: {
         incrementFloor() { this.floorReached++; },
-        decrementFloor() { this.floorReached--; },
+        decrementFloor() { this.floorReached--; if (this.goldInvocation > this.floorReached) this.decrementGoldInvocation() },
         incrementItem(index) { this.itemList[index].itemCount++; },
         decrementItem(index) { this.itemList[index].itemCount--; },
+        incrementGoldInvocation() { this.goldInvocation++; },
+        decrementGoldInvocation() { this.goldInvocation--; },
         addItem() {
             this.itemList.push({itemName: this.itemName, itemCount: 0});
             let item = {itemName: this.itemName, itemCount: 0};
@@ -86,6 +101,9 @@ export default {
         resetModal() {
             this.portalType = this.$store.state.portalTypes[0];
             this.floorReached = 1;
+            this.gotSilver = false;
+            this.hasGoldShifted = false;
+            this.goldInvocation = 1;
             this.itemList = [];
             this.itemName = '';
             this.startTime = this.$moment();
@@ -105,6 +123,9 @@ export default {
             let runDetails = {
                 portalType: this.portalType.name,
                 floorReached: this.floorReached,
+                gotSilver: this.portalType.type === `invocation` ? this.gotSilver : false,
+                hasGoldShifted: this.portalType.type === `invocation` ? this.hasGoldShifted : false,
+                goldInvocation: this.goldInvocation,
                 itemsGained: itemsGained,
                 startTime: this.startTime,
                 endTime: this.$moment(),
