@@ -1,4 +1,4 @@
-import Vue from 'vue'
+/*import Vue from 'vue'
 import Maprunner from './Maprunner.vue'
 import store from './store'
 import BootstrapVue from 'bootstrap-vue';
@@ -24,3 +24,4 @@ new Vue({
   store,
   render: h => h(Maprunner)
 }).$mount('#app')
+*/
