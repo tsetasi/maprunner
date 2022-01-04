@@ -93,7 +93,7 @@ const mutations = {
     Object.keys(configData.currencies).forEach((item) => {
       currency[item] = {};
       currency[item].initial = configData.currencies[item];
-      currency[item].final = 0;
+      currency[item].final = configData.currencies[item];
     });
     state.currency = currency;
 
