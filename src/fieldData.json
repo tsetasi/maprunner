@@ -46,15 +46,21 @@
                 {"name": "Dungeon", "type": "floor", "failText": "Should have gone left!", "max": 5},
                 {"name": "Oubliettes", "type": "invocation", "failText": "FUCKING ATOMOS", "max": 5}
             ]
+        },
+        "endwalker": {
+            "finderLink": "https://ff14.playguide2.net/19578/",
+            "regions": [
+                {
+                    "name": "",
+                    "zones": ["Labyrinthos", "Thavnair", "Garlemald", "Mare Lamentorum", "Elpis", "Ultima Thule"]
+                }
+            ],
+            "portalTypes": [
+                {"name": "The Excitatron 6000", "type": "floor", "failText": "Should have gone left!", "max": 5}
+            ]
         }
     },
-    "currencies": ["gil", "allegory", "revelation"],
+    "currencies": ["gil", "aphorism", "astrology"],
     "items": [
-        {"itemName": "Calf Leather", "itemCount":  0},
-        {"itemName": "Indigo Cloth", "itemCount": 0},
-        {"itemName": "Fireglass Leather", "itemCount": 0},
-        {"itemName": "Shell Leather", "itemCount": 0},
-        {"itemName": "Cloth-softening Powder", "itemCount": 0},
-        {"itemName": "Stuffed Fuath", "itemCount": 0}
     ]
 }
