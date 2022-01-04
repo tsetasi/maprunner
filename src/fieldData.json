@@ -60,7 +60,7 @@
             ]
         }
     },
-    "currencies": ["gil", "aphorism", "astrology"],
+    "currencies": ["gil", "aphorism", "astronomy"],
     "items": [
     ]
 }
