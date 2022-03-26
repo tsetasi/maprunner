@@ -56,11 +56,17 @@
                 }
             ],
             "portalTypes": [
-                {"name": "The Excitatron 6000", "type": "floor", "failText": "Should have gone left!", "max": 5}
+                {"name": "Excitatron", "type": "floor", "failText": "Should have gone left!", "max": 5}
             ]
         }
     },
     "currencies": ["gil", "aphorism", "astronomy"],
     "items": [
+        {"itemName": "Cloth of Happiness", "itemCount": 0},
+        {"itemName": "Pixie Wings", "itemCount": 0},
+        {"itemName": "Archangel Wings", "itemCount": 0},
+        {"itemName": "Royal Lunatender", "itemCount": 0},
+        {"itemName": "Finality Orch Roll", "itemCount": 0},
+        {"itemName": "On Blade's Edge Orch Roll", "itemCount": 0}
     ]
 }
