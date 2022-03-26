@@ -26,7 +26,7 @@
                     <div>
                         <div class="region-title">Finder</div>
                         <b-button @click="openFinder()" variant="link">Open</b-button>
-                        <b-button @click="copyFinderLink()" variant="link">Copy</b-button>
+                        <b-button @click="copyFinderLink()" variant="link">Copy URL</b-button>
                     </div>
                 </b-col>
             </b-row>
